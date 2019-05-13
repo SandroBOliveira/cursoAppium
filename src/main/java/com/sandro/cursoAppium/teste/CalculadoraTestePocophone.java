@@ -1,4 +1,4 @@
-package com.sandro.cursoAppium;
+package com.sandro.cursoAppium.teste;
 
 import java.net.MalformedURLException;
 import java.net.URL;
