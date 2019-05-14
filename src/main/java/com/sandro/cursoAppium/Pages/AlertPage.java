@@ -1,7 +1,5 @@
 package com.sandro.cursoAppium.Pages;
 
-import org.openqa.selenium.By;
-
 import com.sandro.cursoAppium.core.BasePage;
 
 public class AlertPage extends BasePage {
@@ -10,18 +8,18 @@ public class AlertPage extends BasePage {
 		clicarPorTexto("ALERTA CONFIRM");
 	}
 
-	public String obterTextoAlerta() {
-		return obterTexto(By.id("android:id/message"));
+	public void clicarAlertaSimples() {
+		clicarPorTexto("ALERTA SIMPLES");
 	}
 
-	public String obterTituloAlerta() {
-		return obterTexto(By.id("android:id/alertTitle"));
+	public void clicarForaCaixa() {
+		tap(100, 150);
 	}
-	
+
 	public void confirmar() {
 		clicarPorTexto("CONFIRMAR");
 	}
-	
+
 	public void sair() {
 		clicarPorTexto("SAIR");
 	}

@@ -1,10 +1,13 @@
 package com.sandro.cursoAppium.Pages;
 
+import static com.sandro.cursoAppium.core.driverFactory.getDriver;
+
 import org.openqa.selenium.By;
 
 import com.sandro.cursoAppium.core.BasePage;
 
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 
 public class FormularioPage extends BasePage {
 
@@ -41,8 +44,21 @@ public class FormularioPage extends BasePage {
 		return isCheckMarcado(MobileBy.AccessibilityId("switch"));
 	}
 
+	public void clicarSeekBar(double posicao) {
+		MobileElement seek = getDriver().findElement(MobileBy.AccessibilityId("slid"));
+		
+		int y = seek.getLocation().y + (seek.getSize().height / 2);
+		System.out.println(y);
+		
+		int x = (int) (seek.getLocation().x + (seek.getSize().width * posicao));
+		System.out.println(x);
+		
+		tap(x, y);
+		
+	}
+	
 	public void clicarSalvar() {
-		clicarSalvar(By.xpath("//android.widget.TextView[@text='SALVAR']"));
+		clicarPorTexto("SALVAR");
 	}
 
 	public String obterNomeCadastrado() {
@@ -59,5 +75,7 @@ public class FormularioPage extends BasePage {
 	public String obterSwitchCadastrado() {
 		return obterTexto(By.xpath("//android.widget.TextView[starts-with(@text,'Switch:')]"));
 	}
+	
+	
 
 }

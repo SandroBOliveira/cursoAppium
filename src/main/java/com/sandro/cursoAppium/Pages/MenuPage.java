@@ -24,4 +24,26 @@ public class MenuPage extends BasePage {
 	public void AcessarAcorddion() {
 		clicarPorTexto("Accordion");
 	}
+	
+	public void AcessarCliques() {
+		clicarPorTexto("Cliques");
+	}
+	
+	public void acessarSwipe() {
+		clicarPorTexto("Swipe");
+	}
+	
+	public void acessarSwipeList() {
+		scrollDown();
+		clicarPorTexto("Swipe List");
+	}
+	public void acessarDragDrop() {
+		scrollDown();
+		clicarPorTexto("Drag and drop");
+	}
+	public void acessarSeuBarrigaHibrido() {
+		clicarPorTexto("SeuBarriga Híbrido");
+	}
+	
+	
 }

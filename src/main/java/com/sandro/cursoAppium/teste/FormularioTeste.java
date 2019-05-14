@@ -14,6 +14,8 @@ import com.sandro.cursoAppium.Pages.FormularioPage;
 import com.sandro.cursoAppium.Pages.MenuPage;
 import com.sandro.cursoAppium.core.BaseTeste;
 
+import io.appium.java_client.MobileBy;
+
 public class FormularioTeste extends BaseTeste {
 
 	private MenuPage menu = new MenuPage();
@@ -67,5 +69,34 @@ public class FormularioTeste extends BaseTeste {
 		assertEquals("Checkbox: Marcado", formulario.obterCheckBoxCadastrado());
 
 	}
+	
+	@Test
+	public void deveAlterarData() {
+		formulario.clicarPorTexto("01/01/2000");
+		formulario.clicarPorTexto("20");
+		formulario.clicarPorTexto("OK");
+		assertTrue(formulario.existeUmelementoPorTexto("20/2/2000"));
+	}
+	
+	@Test
+	public void deveAlterarHora() {
+		formulario.clicarPorTexto("06:00");
+		formulario.clicar(MobileBy.AccessibilityId("10"));
+		formulario.clicar(MobileBy.AccessibilityId("40"));
+		formulario.clicarPorTexto("OK");
+		assertTrue(formulario.existeUmelementoPorTexto("10:40"));
+	}
 
+	
+	@Test
+	public void deveInteragirComSeekBar() {
+		//clicar no seekbar
+		formulario.clicarSeekBar(0.65);
+		
+		//salvar
+		
+		formulario.clicarSalvar();
+		
+		//obter valor
+	}
 }
